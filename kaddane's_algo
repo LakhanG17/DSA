@@ -1,0 +1,35 @@
+// when empty subarrays are allowed
+
+long long int kadane_algo(vector<int>& arr,int i,int j){
+        if(i<0 ||i>j ||  j>=arr.size()) return INT_MIN;
+        int ans = INT_MIN;
+        int sum =0;
+        for(int k=i;k<=j;k++){
+            sum += arr[k];
+             if(sum<0){
+                sum =0;
+            }
+            ans = max(ans,sum);
+           
+        }
+        return ans;
+    }
+
+
+//when empty subarrays are not allowed
+
+long long int kadane_algo(vector<int>& arr,int i,int j){
+        if(i<0 ||i>j ||  j>=arr.size()) return INT_MIN;
+        int ans = INT_MIN;
+        int sum =0;
+        for(int k=i;k<=j;k++){
+            sum += arr[k];
+             
+            ans = max(ans,sum);
+        if(sum<0){
+                sum =0;
+            }
+           
+        }
+        return ans;
+    }
