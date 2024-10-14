@@ -1,0 +1,25 @@
+  long long int solve(int k,vector<int> &s){
+      int n = s.size();
+      int i=0;
+      int j = 0;
+      unordered_map<int,int> mp;
+      long long int ans = 0;
+      while(j<n&& i<=j){
+          mp[s[j]]++;
+          if(mp.size()<=k){
+             
+          }
+          else{
+              while(i<=j && mp.size()>k){
+                  mp[s[i]]--;
+                  if(mp[s[i]] == 0){
+                      mp.erase(s[i]);
+                  }
+                  i++;
+              }
+          }
+           ans += j-i+1;
+          j++;
+      }
+      return ans;
+  }
